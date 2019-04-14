@@ -12,23 +12,27 @@ namespace FluentValidation.Person
 
         public string Surname { get; set; }
 
+        public int Age { get; set; }
+
         public Child(string name, IParent mother, IParent father)
         {
+            Surname = father.Surname;
+            Name = name;
+            Parents = new List<IParent>();
             Parents.Add(mother);
             Parents.Add(father);
 
-            Inherited.EyeColor = mother.Inherited.HairColour;
-            Inherited.EyeColor = father.Inherited.EyeColor;
-            Inherited.Gender = Sexes.Male;
-            Inherited.Heigh = 40;
-
-            Surname = father.Surname;
-            Name = name;
+            Inherited = new Trait()
+            {
+                EyeColor = mother.Inherited.HairColor,
+                HairColor = father.Inherited.EyeColor,
+                Gender = Sexes.Male,
+                Height = 40
+            };
+            Inherited.EyeColor = mother.Inherited.HairColor;
+            Inherited.EyeColor = father.Inherited.EyeColor;                
         }
 
-        public Child()
-        {
-
-        }
+        public Child() => Inherited = new Trait();
     }
 }

@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "FluentValidation.Tests": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

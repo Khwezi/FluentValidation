@@ -17,5 +17,7 @@
         public int Age { get; set; }
 
         public Trait Inherited { get; set; }
+
+        public Parent() => Inherited = new Trait();
     }
 }
